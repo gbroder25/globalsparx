@@ -63,25 +63,21 @@
       box-shadow: var(--shadow);
     }
 
-    /* Navigation Links */
+    /* Navigation Links (spaced) */
     nav {
       display: flex;
-      gap: 60px; /* Adjust spacing between the 4 links here */
+      gap: 60px; /* adjust spacing between the 4 links here */
     }
-
     nav a {
       color: var(--accent);
       text-decoration: none;
       font-weight: 500;
       font-size: 18px;
-      transition: color .3s ease;
+      transition: color .25s ease;
     }
+    nav a:hover { color: var(--accent-2); }
 
-    nav a:hover {
-      color: var(--accent-2);
-    }
-
-    /* Hero Section */
+    /* Hero */
     .hero { padding: 80px 0 40px; text-align: center; }
     .headline { font-size: clamp(28px, 5vw, 56px); font-weight: 800; }
     .subhead { font-size: 18px; color: var(--muted); text-align: justify; margin: 0 auto; max-width: 1000px; line-height: 1.7; }
@@ -124,11 +120,11 @@
 <body>
   <header>
     <div class="container nav">
-      <a href="#about" class="brand">
-        <div class="logo"></div>
+      <a href="#about" class="brand" aria-label="Go to About">
+        <div class="logo" aria-hidden="true"></div>
         <div>NEXORA</div>
       </a>
-      <nav>
+      <nav aria-label="Primary">
         <a href="#services">Services</a>
         <a href="#industries">Industries</a>
         <a href="#about">About</a>
@@ -174,6 +170,11 @@
       <h2>About NEXORA</h2>
       <p>NEXORA is an executive search and consulting firm dedicated to connecting exceptional leadership talent with world-class manufacturers across the U.S. and Europe. With roots in both industrial operations and strategic recruitment, we provide a unique bridge between the boardroom and the plant floor — aligning leadership vision with execution.</p>
       <p>Our consultants bring decades of direct industry experience in automotive, plastics, and advanced manufacturing, enabling us to speak the same language as our clients and candidates alike. Whether optimizing plant leadership, driving organizational redesign, or expanding U.S. operations for European firms, we deliver measurable, sustainable impact.</p>
+    </section>
+
+    <section id="contact" class="container">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:sales@globalsparx.com">sales@globalsparx.com</a></p>
     </section>
   </main>
 
