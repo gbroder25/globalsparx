@@ -79,10 +79,27 @@
     .card {
       background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
       border: 1px solid rgba(255,255,255,.08);
+      border-left: 6px solid transparent;
       border-radius: var(--radius);
       padding: 30px 22px;
       box-shadow: var(--shadow);
       text-align: left;
+      transition: all 0.3s ease;
+      background-clip: padding-box;
+      position: relative;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 6px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+      border-radius: 6px 0 0 6px;
+      opacity: 0.8;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.5);
     }
 
     .kicker { text-transform: uppercase; letter-spacing: .22em; color: var(--muted); font-size: 12px; font-weight: 700; }
