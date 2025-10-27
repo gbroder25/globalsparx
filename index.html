@@ -5,238 +5,175 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NEXORA — Executive Search & Consulting for Manufacturing and Supply Chain Leaders</title>
   <meta name="description" content="NEXORA is a boutique executive search and consulting firm specialized in manufacturing and supply chain leadership across automotive, industrial, and capital equipment sectors." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231a1f2e'/%3E%3Cpath d='M18 40l7-18 6 9 15-7-7 18-6-9z' fill='%23ffffff'/%3E%3C/svg%3E" />
   <style>
-    :root {
-      --bg: #0f1220;
-      --card: #151a2c;
-      --muted: #8ea3b0;
-      --text: #e7eef4;
-      --accent: #4ad6b8;
-      --accent-2: #7aa6ff;
-      --shadow: 0 10px 30px rgba(0,0,0,0.35);
-      --radius: 18px;
+    :root{
+      --bg:#0f1220; --card:#151a2c; --muted:#8ea3b0; --text:#e7eef4;
+      --accent:#4ad6b8; --accent-2:#7aa6ff; --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
     }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:ui-sans-serif,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:var(--accent);text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
 
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans';
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { opacity: .9; }
+    header{position:sticky;top:0;z-index:50;background:rgba(15,18,32,.7);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700}
+    .logo{width:36px;height:36px;border-radius:50%;background:
+      radial-gradient(120px 80px at 70% 30%, var(--accent), transparent 60%),
+      radial-gradient(120px 80px at 30% 70%, var(--accent-2), transparent 60%), #1a1f2e;box-shadow:var(--shadow)}
 
-    .container { max-width: 1100px; padding: 24px; margin: 0 auto; }
+    .hero{text-align:center;padding:80px 0 40px}
+    .headline{font-size:clamp(28px,5vw,56px);font-weight:800;margin:0 auto;max-width:1100px}
+    .subhead{font-size:clamp(16px,2.4vw,20px);color:var(--muted);text-align:justify;width:90%;max-width:1100px;margin:0 auto;line-height:1.7}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:16px}
+    .btn{display:inline-block;padding:14px 18px;border-radius:999px;font-weight:600;border:1px solid transparent}
+    .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0b0f1a}
+    .btn-outline{border-color:rgba(255,255,255,.18);color:var(--text)}
 
-    header {
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: saturate(180%) blur(8px);
-      background: rgba(15,18,32,.7);
-      border-bottom: 1px solid rgba(255,255,255,.06);
+    .section{padding:46px 0}
+    .grid{display:grid;gap:18px;grid-template-columns:repeat(12,1fr);justify-items:center;align-items:stretch}
+    .card{
+      grid-column:span 12;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
+      border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);
+      display:flex;flex-direction:column;transition:.3s;max-width:100%;width:100%;text-align:center
     }
-    .nav { display: flex; align-items: center; justify-content: space-between; }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: .3px; }
-    .logo {
-      width: 36px; height: 36px; border-radius: 50%;
-      background: radial-gradient(120px 80px at 70% 30%, var(--accent), transparent 60%),
-                  radial-gradient(120px 80px at 30% 70%, var(--accent-2), transparent 60%), #1a1f2e;
-      box-shadow: var(--shadow);
-    }
-    .nav a { margin-left: 18px; color: var(--text); opacity: .9; }
+    @media(min-width:760px){.card{grid-column:span 4;max-width:340px}}
+    .card:hover{transform:translateY(-6px);box-shadow:0 14px 35px rgba(0,0,0,.5)}
+    h2{font-size:clamp(22px,3.4vw,34px);margin:6px 0 14px}
+    h3{font-size:20px;margin:10px 0}
+    .card p{margin:0 auto;max-width:92%}
+    .card .spacer{flex:1}
 
-    .hero { padding: 80px 0 40px; display: grid; gap: 22px; align-items: center; text-align: center; }
-    .headline {
-      font-size: clamp(28px, 5vw, 56px);
-      font-weight: 800;
-      letter-spacing: .2px;
-      line-height: 1.1;
-      text-align: center;
-      margin: 0 auto;
-      max-width: 1100px;
+    /* Industry images */
+    #industries img{
+      width:100%;height:180px;object-fit:cover;border-radius:12px;margin-bottom:12px;transition:transform .3s ease
     }
-    .subhead {
-      font-size: clamp(16px, 2.4vw, 20px);
-      color: var(--muted);
-      width: 90%;
-      max-width: 1100px;
-      text-align: justify;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 8px; }
-    .btn {
-      display: inline-block; padding: 14px 18px;
-      border-radius: 999px; font-weight: 600;
-      border: 1px solid transparent;
-    }
-    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #0b0f1a; }
-    .btn-outline { border-color: rgba(255,255,255,.18); color: var(--text); }
+    #industries img:hover{transform:scale(1.03)}
 
-    /* ---------- Services: centered group + equal-height cards ---------- */
-    .services-grid {
-      display: flex;
-      justify-content: center;   /* center the whole trio under the paragraph */
-      align-items: stretch;      /* equal heights */
-      gap: 24px;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: var(--radius);
-      padding: 30px 24px;
-      box-shadow: var(--shadow);
-      text-align: center;        /* center title + text inside card */
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      width: 340px;              /* consistent width for nice centering */
-      display: flex;             /* equal height internals */
-      flex-direction: column;
-    }
-    .card:hover { transform: translateY(-6px); box-shadow: 0 14px 35px rgba(0,0,0,0.5); }
-    .card p { max-width: 90%; margin: 0 auto; }
-
-    h2 { font-size: clamp(22px, 3.4vw, 34px); margin: 6px 0 14px; }
-
-    /* ---------- Industries grid (unchanged) ---------- */
-    .industries-grid { display: grid; gap: 18px; grid-template-columns: repeat(12, 1fr); margin-top: 28px; }
-    .industries-grid > * { grid-column: span 12; }
-    @media (min-width: 700px) { .industries-grid > * { grid-column: span 6; } }
-    @media (min-width: 1024px) { .industries-grid > * { grid-column: span 4; } }
-
-    .industry-card {
-      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease;
-    }
-    .industry-card:hover { transform: translateY(-5px); }
-    .industry-media {
-      height: 170px;
-      width: 100%;
-      object-fit: cover;
-      display: block;
-      filter: saturate(110%);
-    }
-    .industry-body { padding: 14px 16px 18px; }
-    .industry-body p { color: var(--muted); margin: 6px 0 0; font-size: 14px; }
-
-    .footer { padding: 28px 0 60px; color: var(--muted); font-size: 14px; border-top: 1px solid rgba(255,255,255,.08); }
-    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New"; font-size: 13px; color: var(--muted); }
+    .footer{padding:28px 0 60px;color:var(--muted);font-size:14px;border-top:1px solid rgba(255,255,255,.08);text-align:center}
   </style>
 </head>
-
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>NEXORA</div>
-      </div>
-      <nav>
-        <a href="#services">Services</a>
-        <a href="#industries">Industries</a>
-        <a href="#about">About</a>
-        <a href="#contact" class="badge">Contact</a>
-      </nav>
+<header>
+  <div class="container nav">
+    <div class="brand"><div class="logo" aria-hidden="true"></div><div>NEXORA</div></div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#industries">Industries</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="container hero">
+    <span class="kicker">Executive Search & Consulting</span>
+    <h1 class="headline">Bridging European Precision with American Performance.</h1>
+    <p class="subhead">
+      NEXORA is a boutique executive search and consulting firm specialized in <strong>manufacturing and supply chain</strong>
+      leadership across the <strong>automotive, industrial, and capital equipment sectors</strong>. We combine hands-on
+      <strong>multi-plant P&L experience</strong> with a deep understanding of <strong>European and North American business cultures</strong>—
+      bridging operational excellence with leadership alignment. Our dual expertise in <strong>executive search</strong> and
+      <strong>consulting services</strong> enables us to help clients identify, assess, and develop leadership teams that drive performance,
+      efficiency, and cross-continental collaboration.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:sales@globalsparx.com?subject=NEXORA%20Inquiry">Book an Intro Call</a>
+      <a class="btn btn-outline" href="#services">See our services</a>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <section class="container hero">
-      <span class="kicker">Executive Search & Consulting</span>
-      <h1 class="headline">Bridging European Precision with American Performance.</h1>
-      <p class="subhead">
-        NEXORA is a boutique executive search and consulting firm specialized in <strong>manufacturing and supply chain</strong>
-        leadership across the <strong>automotive, industrial, and capital equipment sectors</strong>. 
-        We combine hands-on <strong>multi-plant P&L experience</strong> with a deep understanding of
-        <strong>European and North American business cultures</strong>—bridging operational excellence with leadership alignment.
-        Our dual expertise in <strong>executive search</strong> and <strong>consulting services</strong> enables us to help clients identify,
-        assess, and develop leadership teams that drive performance, efficiency, and cross-continental collaboration.
-      </p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="mailto:sales@globalsparx.com?subject=NEXORA%20Inquiry">Book an Intro Call</a>
-        <a class="btn btn-outline" href="#services">See our services</a>
+  <!-- Services -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="grid">
+        <article class="card">
+          <h2>Executive Search</h2>
+          <div class="spacer"></div>
+          <p>Confidential searches for <strong>Plant Managers, Operations Directors, VPs of Sales, Supply Chain leaders, and General Managers</strong>. Retained with a clear SLA and 60-day guarantee.</p>
+        </article>
+        <article class="card">
+          <h2>Consulting Services</h2>
+          <div class="spacer"></div>
+          <p>Organizational design, performance optimization, and leadership alignment programs tailored to industrial and manufacturing environments. Practical solutions grounded in operational experience.</p>
+        </article>
+        <article class="card">
+          <h2>Talent Advisory</h2>
+          <div class="spacer"></div>
+          <p>Market mapping, compensation benchmarking, and hiring process design to reduce time-to-fill and increase quality-of-hire across industrial footprints.</p>
+        </article>
       </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services" class="section">
-      <div class="container">
-        <div class="services-grid">
-          <article class="card">
-            <h2>Executive Search</h2>
-            <p>Confidential searches for <strong>Plant Managers, Operations Directors, VPs of Sales, Supply Chain leaders, and General Managers</strong>. Retained with a clear SLA and 60-day guarantee.</p>
-          </article>
-          <article class="card">
-            <h2>Consulting Services</h2>
-            <p>Organizational design, performance optimization, and leadership alignment programs tailored to industrial and manufacturing environments. Practical solutions grounded in operational experience.</p>
-          </article>
-          <article class="card">
-            <h2>Talent Advisory</h2>
-            <p>Market mapping, compensation benchmarking, and hiring process design to reduce time-to-fill and increase quality-of-hire across industrial footprints.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- INDUSTRIES -->
-    <section id="industries" class="section">
-      <div class="container">
-        <h2>Industries</h2>
-        <div class="industries-grid">
-          <article class="industry-card">
-            <img class="industry-media" src="https://source.unsplash.com/800x600/?automotive,assembly" alt="Automotive Industry">
-            <div class="industry-body"><h3>Automotive</h3><p>OEMs, Tier 1–2 suppliers, EV systems, assembly & tooling.</p></div>
-          </article>
-          <article class="industry-card">
-            <img class="industry-media" src="https://source.unsplash.com/800x600/?petrochemical,refinery" alt="Petrochemical Industry">
-            <div class="industry-body"><h3>Petrochemical</h3><p>Downstream polymers, process industries, chemical engineering.</p></div>
-          </article>
-          <article class="industry-card">
-            <img class="industry-media" src="https://source.unsplash.com/800x600/?industrial,factory" alt="Industrial Sector">
-            <div class="industry-body"><h3>Industrial</h3><p>Machinery, automation, pumps, compressors & engineered systems.</p></div>
-          </article>
-          <article class="industry-card">
-            <img class="industry-media" src="https://source.unsplash.com/800x600/?plastics,injection-molding" alt="Plastics Processing">
-            <div class="industry-body"><h3>Plastics Processing</h3><p>Injection molding, extrusion, and compounding operations.</p></div>
-          </article>
-          <article class="industry-card">
-            <img class="industry-media" src="https://source.unsplash.com/800x600/?packaging,machine" alt="Packaging Industry">
-            <div class="industry-body"><h3>Packaging</h3><p>Rigid & flexible packaging systems, labeling, automation lines.</p></div>
-          </article>
-          <article class="industry-card">
-            <img class="industry-media" src="https://source.unsplash.com/800x600/?aerospace,defense" alt="Aerospace and Defense">
-            <div class="industry-body"><h3>Aerospace & Defense</h3><p>Precision manufacturing, composites, and certified supply chains.</p></div>
-          </article>
-          <article class="industry-card">
-            <img class="industry-media" src="https://source.unsplash.com/800x600/?medical-device,cleanroom" alt="Medical Device Industry">
-            <div class="industry-body"><h3>Medical Device</h3><p>Cleanroom assembly, disposables, diagnostics, and OEM systems.</p></div>
-          </article>
-          <article class="industry-card">
-            <img class="industry-media" src="https://source.unsplash.com/800x600/?logistics,supply-chain" alt="Supply Chain Sector">
-            <div class="industry-body"><h3>Supply Chain</h3><p>Procurement, logistics, warehousing, and strategic sourcing.</p></div>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container" style="display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;">
-      <div>© <span id="year"></span> NEXORA. All rights reserved.</div>
-      <div class="mono">Built with simple, fast HTML/CSS. No cookies, no trackers.</div>
     </div>
-  </footer>
+  </section>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <!-- Industries -->
+  <section id="industries" class="section">
+    <div class="container">
+      <h2 style="text-align:center;font-size:clamp(28px,4vw,44px);margin-bottom:30px;">Industries We Serve</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="3c84090c-8980-4988-98e5-4660bf96cdfd.png" alt="Automotive Industry">
+          <h3>Automotive</h3>
+          <div class="spacer"></div>
+          <p>Supporting OEMs and Tier 1–2 suppliers with leadership in operations, quality, and electrification technology.</p>
+        </article>
+
+        <article class="card">
+          <img src="abf85c46-1c2e-4528-b028-4e3ea3b69b40.png" alt="Petrochemical Industry">
+          <h3>Petrochemical</h3>
+          <div class="spacer"></div>
+          <p>Executive talent for polymer, chemical, and process manufacturing environments.</p>
+        </article>
+
+        <article class="card">
+          <img src="c937ef4f-5010-4257-a73f-f07ba1386c8b.png" alt="Industrial Sector">
+          <h3>Industrial</h3>
+          <div class="spacer"></div>
+          <p>Specialized searches for machinery, components, and engineered systems manufacturers.</p>
+        </article>
+
+        <article class="card">
+          <img src="20daca03-e09e-4ae7-be8f-b881c9b34f26.png" alt="Plastics Processing">
+          <h3>Plastics Processing</h3>
+          <div class="spacer"></div>
+          <p>Recruiting leadership across injection molding, extrusion, thermoforming, and packaging operations.</p>
+        </article>
+
+        <article class="card">
+          <img src="2887dc65-386e-4b5e-b25d-b8dab3811bfd.png" alt="Packaging Industry">
+          <h3>Packaging</h3>
+          <div class="spacer"></div>
+          <p>Rigid & flexible packaging, labeling, automation lines, and sustainable materials.</p>
+        </article>
+
+        <article class="card">
+          <img src="d38b05d3-e5f1-4ba9-82f9-806278c5cbdf.png" alt="Aerospace and Defense">
+          <h3>Aerospace & Defense</h3>
+          <div class="spacer"></div>
+          <p>Trusted by high-precision manufacturers for engineering, quality, and production excellence.</p>
+        </article>
+
+        <article class="card">
+          <h3>Medical Device & Supply Chain</h3>
+          <div class="spacer"></div>
+          <p>Building teams that ensure compliance, scalability, and efficiency from manufacturing to distribution.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    © <span id="year"></span> NEXORA. All rights reserved.<br />
+    <small>Built with simple, fast HTML/CSS. No cookies, no trackers.</small>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
