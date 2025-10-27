@@ -85,7 +85,6 @@
       box-shadow: var(--shadow);
       text-align: left;
       transition: all 0.3s ease;
-      background-clip: padding-box;
       position: relative;
     }
     .card::before {
@@ -102,26 +101,32 @@
       box-shadow: 0 14px 35px rgba(0,0,0,0.5);
     }
 
-    .kicker { text-transform: uppercase; letter-spacing: .22em; color: var(--muted); font-size: 12px; font-weight: 700; }
-    h2 { font-size: clamp(22px, 3.4vw, 34px); margin: 6px 0 14px; }
-    h3 { font-size: 18px; margin: 4px 0 10px; }
-    ul { margin: 0; padding-left: 18px; }
+    .industries-grid { display: grid; gap: 18px; grid-template-columns: repeat(12, 1fr); margin-top: 28px; }
+    .industries-grid > * { grid-column: span 12; }
+    @media (min-width: 700px) { .industries-grid > * { grid-column: span 6; } }
+    @media (min-width: 1024px) { .industries-grid > * { grid-column: span 4; } }
 
-    .section { padding: 46px 0; }
-    .cols-3 > * { grid-column: span 12; }
-    @media (min-width: 760px) { .cols-3 > * { grid-column: span 4; } }
-    .cols-2 > * { grid-column: span 12; }
-    @media (min-width: 900px) { .cols-2 > * { grid-column: span 6; } }
+    .industry-card {
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+    .industry-card:hover { transform: translateY(-5px); }
+    .industry-media {
+      height: 170px;
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(110%);
+    }
+    .industry-body { padding: 14px 16px 18px; }
+    .industry-body p { color: var(--muted); margin: 6px 0 0; font-size: 14px; }
 
     .footer { padding: 28px 0 60px; color: var(--muted); font-size: 14px; border-top: 1px solid rgba(255,255,255,.08); }
     .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New"; font-size: 13px; color: var(--muted); }
-
-    .badge {
-      display:inline-block; padding:6px 10px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.03);
-      color: var(--text); font-size:12px;
-    }
   </style>
 </head>
 
@@ -135,7 +140,6 @@
       <nav>
         <a href="#services">Services</a>
         <a href="#industries">Industries</a>
-        <a href="#process">Process</a>
         <a href="#about">About</a>
         <a href="#contact" class="badge">Contact</a>
       </nav>
@@ -165,29 +169,61 @@
         <div class="grid cols-3">
           <article class="card">
             <h2>Executive Search</h2>
-            <p>
-              Confidential searches for <strong>Plant Managers, Operations Directors, VPs of Sales, Supply Chain leaders, and General Managers</strong>. 
-              Retained with a clear SLA and 60-day guarantee.
-            </p>
+            <p>Confidential searches for <strong>Plant Managers, Operations Directors, VPs of Sales, Supply Chain leaders, and General Managers</strong>. Retained with a clear SLA and 60-day guarantee.</p>
           </article>
-
           <article class="card">
             <h2>Consulting Services</h2>
-            <p>
-              Organizational design, performance optimization, and leadership alignment programs tailored to industrial and manufacturing environments.
-              Practical solutions grounded in operational experience.
-            </p>
+            <p>Organizational design, performance optimization, and leadership alignment programs tailored to industrial and manufacturing environments. Practical solutions grounded in operational experience.</p>
           </article>
-
           <article class="card">
             <h2>Talent Advisory</h2>
-            <p>
-              Market mapping, compensation benchmarking, and hiring process design to reduce time-to-fill and increase quality-of-hire across industrial footprints.
-            </p>
+            <p>Market mapping, compensation benchmarking, and hiring process design to reduce time-to-fill and increase quality-of-hire across industrial footprints.</p>
           </article>
         </div>
       </div>
     </section>
+
+    <!-- INDUSTRIES SECTION -->
+    <section id="industries" class="section">
+      <div class="container">
+        <h2>Industries</h2>
+        <div class="industries-grid">
+          <article class="industry-card">
+            <img class="industry-media" src="https://source.unsplash.com/800x600/?automotive,assembly" alt="Automotive Industry">
+            <div class="industry-body"><h3>Automotive</h3><p>OEMs, Tier 1–2 suppliers, EV systems, assembly & tooling.</p></div>
+          </article>
+          <article class="industry-card">
+            <img class="industry-media" src="https://source.unsplash.com/800x600/?petrochemical,refinery" alt="Petrochemical Industry">
+            <div class="industry-body"><h3>Petrochemical</h3><p>Downstream polymers, process industries, chemical engineering.</p></div>
+          </article>
+          <article class="industry-card">
+            <img class="industry-media" src="https://source.unsplash.com/800x600/?industrial,factory" alt="Industrial Sector">
+            <div class="industry-body"><h3>Industrial</h3><p>Machinery, automation, pumps, compressors & engineered systems.</p></div>
+          </article>
+          <article class="industry-card">
+            <img class="industry-media" src="https://source.unsplash.com/800x600/?plastics,injection-molding" alt="Plastics Processing">
+            <div class="industry-body"><h3>Plastics Processing</h3><p>Injection molding, extrusion, and compounding operations.</p></div>
+          </article>
+          <article class="industry-card">
+            <img class="industry-media" src="https://source.unsplash.com/800x600/?packaging,machine" alt="Packaging Industry">
+            <div class="industry-body"><h3>Packaging</h3><p>Rigid & flexible packaging systems, labeling, automation lines.</p></div>
+          </article>
+          <article class="industry-card">
+            <img class="industry-media" src="https://source.unsplash.com/800x600/?aerospace,defense" alt="Aerospace and Defense">
+            <div class="industry-body"><h3>Aerospace & Defense</h3><p>Precision manufacturing, composites, and certified supply chains.</p></div>
+          </article>
+          <article class="industry-card">
+            <img class="industry-media" src="https://source.unsplash.com/800x600/?medical-device,cleanroom" alt="Medical Device Industry">
+            <div class="industry-body"><h3>Medical Device</h3><p>Cleanroom assembly, disposables, diagnostics, and OEM systems.</p></div>
+          </article>
+          <article class="industry-card">
+            <img class="industry-media" src="https://source.unsplash.com/800x600/?logistics,supply-chain" alt="Supply Chain Sector">
+            <div class="industry-body"><h3>Supply Chain</h3><p>Procurement, logistics, warehousing, and strategic sourcing.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- END INDUSTRIES -->
   </main>
 
   <footer class="footer">
