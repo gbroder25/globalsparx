@@ -33,14 +33,15 @@
 
     .hero { padding: 80px 0 40px; display: grid; gap: 22px; align-items: center; }
     .headline { font-size: clamp(28px, 5vw, 56px); font-weight: 800; letter-spacing: .2px; line-height: 1.1; }
-    .subhead { font-size: clamp(16px, 2.4vw, 20px); color: var(--muted); max-width: 780px; }
+    .subhead { font-size: clamp(16px, 2.4vw, 20px); color: var(--muted); max-width: 780px; text-align: justify; }
     .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
     .btn { display: inline-block; padding: 14px 18px; border-radius: 999px; font-weight: 600; border: 1px solid transparent; }
     .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #0b0f1a; }
     .btn-outline { border-color: rgba(255,255,255,.18); color: var(--text); }
 
     .grid { display: grid; gap: 18px; grid-template-columns: repeat(12, 1fr); }
-    .card { background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01)); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); text-align: center; }
+    .card p { max-width: 85%; margin: 0 auto; }
     .kicker { text-transform: uppercase; letter-spacing: .22em; color: var(--muted); font-size: 12px; font-weight: 700; }
     h2 { font-size: clamp(22px, 3.4vw, 34px); margin: 6px 0 14px; }
     h3 { font-size: 18px; margin: 4px 0 10px; }
@@ -61,6 +62,7 @@
     .badge { display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.03); color: var(--text); font-size:12px; }
   </style>
 </head>
+
 <body>
   <header>
     <div class="container nav">
@@ -82,7 +84,7 @@
     <section class="container hero">
       <span class="kicker">Executive Search & Consulting</span>
       <h1 class="headline">Bridging European Precision with American Performance.</h1>
-      <p class="subhead" style="text-align: justify;">
+      <p class="subhead">
         NEXORA is a boutique executive search and consulting firm specialized in <strong>manufacturing and supply chain</strong> leadership across the <strong>automotive, industrial, and capital equipment sectors</strong>. 
         We combine hands-on <strong>multi-plant P&L experience</strong> with a deep understanding of <strong>European and North American business cultures</strong>—bridging operational excellence with leadership alignment. 
         Our dual expertise in <strong>executive search</strong> and <strong>consulting services</strong> enables us to help clients identify, assess, and develop leadership teams that drive performance, efficiency, and cross-continental collaboration.
@@ -96,17 +98,27 @@
     <section id="services" class="section">
       <div class="container">
         <div class="grid cols-3">
-          <article class="card style="text-align: justify;">
+          <article class="card">
             <h2>Executive Search</h2>
-            <p>Confidential searches for <strong>Plant Managers, Operations Directors, VPs of Sales, Supply Chain leaders, and General Managers</strong>. Retained with a clear SLA and 60 day guarantee.</p>
+            <p>
+              Confidential searches for <strong>Plant Managers, Operations Directors, VPs of Sales, Supply Chain leaders, and General Managers</strong>. 
+              Retained with a clear SLA and 60-day guarantee.
+            </p>
           </article>
+
           <article class="card">
             <h2>Consulting Services</h2>
-            <p>Organizational design, performance optimization, and leadership alignment programs tailored to industrial and manufacturing environments. Practical solutions grounded in operational experience.</p>
+            <p>
+              Organizational design, performance optimization, and leadership alignment programs tailored to industrial and manufacturing environments. 
+              Practical solutions grounded in operational experience.
+            </p>
           </article>
+
           <article class="card">
             <h2>Talent Advisory</h2>
-            <p>Market mapping, compensation benchmarking, and hiring process design to reduce time-to-fill and increase quality-of-hire across industrial footprints.</p>
+            <p>
+              Market mapping, compensation benchmarking, and hiring process design to reduce time-to-fill and increase quality-of-hire across industrial footprints.
+            </p>
           </article>
         </div>
       </div>
