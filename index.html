@@ -19,18 +19,14 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { scroll-padding-top: 100px; } /* prevents sticky header from covering anchors */
-
     body {
       font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
-      scroll-behavior: smooth;
     }
 
     .container { max-width: 1100px; padding: 24px; margin: 0 auto; }
-    .content { max-width: 1000px; } /* keeps titles and paragraphs on the same left edge */
 
     header {
       position: sticky;
@@ -41,62 +37,85 @@
       border-bottom: 1px solid rgba(255,255,255,.06);
     }
 
-    .nav { display: flex; align-items: center; justify-content: space-between; }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
     .brand {
-      display: flex; align-items: center; gap: 12px;
-      font-weight: 700; color: var(--accent);
-      text-decoration: none; letter-spacing: .3px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: .3px;
     }
     .brand:hover { color: var(--accent-2); }
 
     .logo {
-      width: 36px; height: 36px; border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
       background: radial-gradient(120px 80px at 70% 30%, var(--accent), transparent 60%),
                   radial-gradient(120px 80px at 30% 70%, var(--accent-2), transparent 60%), #1a1f2e;
       box-shadow: var(--shadow);
     }
 
-    nav { display: flex; gap: 60px; align-items: center; }
+    /* Navigation Links */
+    nav {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+    }
     nav a {
-      color: var(--accent); text-decoration: none;
-      font-weight: 500; font-size: 18px; transition: color .25s ease;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 18px;
+      transition: color .25s ease;
     }
     nav a:hover { color: var(--accent-2); }
 
-    .btn-header {
+    /* CTA Button in Header */
+    .nav .btn-header {
+      margin-left: 30px;
       padding: 10px 18px;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       border-radius: 999px;
-      color: #0b0f1a; font-weight: 600; text-decoration: none;
+      color: #0b0f1a;
+      font-weight: 600;
+      text-decoration: none;
       transition: opacity .25s;
     }
-    .btn-header:hover { opacity: 0.9; }
+    .nav .btn-header:hover { opacity: 0.9; }
 
-    /* Hero */
+    /* Hero Section */
     .hero { padding: 80px 0 40px; text-align: center; }
     .headline { font-size: clamp(28px, 5vw, 56px); font-weight: 800; line-height: 1.2; }
     .subhead {
-      font-size: 18px; color: var(--muted);
-      text-align: justify; text-justify: inter-word;
-      margin: 20px 0; line-height: 1.7;
+      font-size: 18px;
+      color: var(--muted);
+      text-align: justify;
+      margin: 20px auto;
+      max-width: 1000px;
+      line-height: 1.7;
     }
 
-    /* Sections */
+    /* Services Section */
     .section { padding: 60px 0; }
     .section h2 {
       font-size: clamp(24px, 3.2vw, 34px);
-      font-weight: 700; margin-bottom: 20px;
-      text-align: left; color: var(--accent);
-    }
-    .section p {
-      text-align: justify; text-justify: inter-word;
-      margin-bottom: 20px; line-height: 1.8;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-align: left;
+      color: var(--accent);
     }
 
-    /* Grids & Cards */
     .grid {
-      display: grid; gap: 24px;
+      display: grid;
+      gap: 18px;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       justify-items: center;
     }
@@ -105,21 +124,49 @@
       background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
       border: 1px solid rgba(255,255,255,.08);
       border-radius: var(--radius);
-      padding: 28px; box-shadow: var(--shadow);
-      text-align: center; transition: transform .3s ease;
-      width: 100%; max-width: 330px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      text-align: left; /* aligned left */
+      transition: transform .3s ease;
+      width: 100%;
+      max-width: 330px;
     }
     .card:hover { transform: translateY(-6px); }
 
-    .card img {
-      width: 100%; height: 200px; object-fit: cover;
-      border-radius: 12px; margin-bottom: 15px;
+    .card h3, .card p {
+      text-align: left;
+    }
+
+    /* About Section */
+    #about h2 {
+      color: var(--accent);
+      text-align: left;
+      margin-bottom: 16px;
+    }
+    #about p {
+      text-align: justify;
+      margin-bottom: 16px;
+      max-width: 1000px;
+    }
+
+    /* Contact Section */
+    #contact h2 {
+      color: var(--accent);
+      text-align: left;
+      margin-bottom: 12px;
+    }
+    #contact p {
+      text-align: left;
+      margin-left: 0;
     }
 
     /* Footer */
     .footer {
-      padding: 28px 0 60px; color: var(--muted); font-size: 14px;
-      border-top: 1px solid rgba(255,255,255,.08); text-align: center;
+      padding: 28px 0 60px;
+      color: var(--muted);
+      font-size: 14px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      text-align: center;
     }
   </style>
 </head>
@@ -127,11 +174,11 @@
 <body>
   <header>
     <div class="container nav">
-      <a href="#about" class="brand">
-        <div class="logo"></div>
+      <a href="#about" class="brand" aria-label="Go to About">
+        <div class="logo" aria-hidden="true"></div>
         <div>NEXORA</div>
       </a>
-      <nav>
+      <nav aria-label="Primary">
         <a href="#services">Services</a>
         <a href="#industries">Industries</a>
         <a href="#about">About</a>
@@ -142,26 +189,18 @@
   </header>
 
   <main>
-    <!-- HERO -->
-    <section class="section">
-      <div class="container">
-        <div class="content" style="margin: 0 auto; text-align: center;">
-          <h1 class="headline">Bridging European Precision<br>with American Performance.</h1>
-          <p class="subhead">
-            NEXORA is a boutique executive search and consulting firm specialized in <strong>manufacturing and supply chain</strong> leadership across the <strong>automotive, industrial, and capital equipment sectors</strong>.
-            We combine hands-on <strong>multi-plant P&L experience</strong> with a deep understanding of <strong>European and North American business cultures</strong>—bridging operational excellence with leadership alignment.
-            Our dual expertise in <strong>executive search</strong> and <strong>consulting services</strong> enables us to help clients identify, assess, and develop leadership teams that drive performance, efficiency, and cross-continental collaboration.
-          </p>
-        </div>
-      </div>
+    <section class="container hero">
+      <h1 class="headline">Bridging European Precision<br>with American Performance.</h1>
+      <p class="subhead">
+        NEXORA is a boutique executive search and consulting firm specialized in <strong>manufacturing and supply chain</strong> leadership across the <strong>automotive, industrial, and capital equipment sectors</strong>.
+        We combine hands-on <strong>multi-plant P&L experience</strong> with a deep understanding of <strong>European and North American business cultures</strong>—bridging operational excellence with leadership alignment.
+        Our dual expertise in <strong>executive search</strong> and <strong>consulting services</strong> enables us to help clients identify, assess, and develop leadership teams that drive performance, efficiency, and cross-continental collaboration.
+      </p>
     </section>
 
-    <!-- SERVICES -->
     <section id="services" class="section">
       <div class="container">
-        <div class="content">
-          <h2>Services We Offer</h2>
-        </div>
+        <h2>Services We Offer</h2>
         <div class="grid">
           <article class="card">
             <h3>Executive Search</h3>
@@ -179,58 +218,28 @@
       </div>
     </section>
 
-    <!-- INDUSTRIES -->
-    <section id="industries" class="section">
-      <div class="container">
-        <div class="content">
-          <h2>Industries We Serve</h2>
-        </div>
-        <div class="grid">
-          <article class="card"><img src="images/Automotive.webp" alt="Automotive Industry"><h3>Automotive</h3></article>
-          <article class="card"><img src="images/Petrochemical.jpg" alt="Petrochemical"><h3>Petrochemical</h3></article>
-          <article class="card"><img src="images/Industrial.jpg" alt="Industrial"><h3>Industrial</h3></article>
-          <article class="card"><img src="images/Plastic Processing.jpg" alt="Plastic Processing"><h3>Plastic Processing</h3></article>
-          <article class="card"><img src="images/Packaging.jpg" alt="Packaging"><h3>Packaging</h3></article>
-          <article class="card"><img src="images/Aerospace and Defense.jpg" alt="Aerospace & Defense"><h3>Aerospace & Defense</h3></article>
-          <article class="card"><img src="images/Medical Device.jpg" alt="Medical Device"><h3>Medical Device</h3></article>
-          <article class="card"><img src="images/Supply Chain.jpg" alt="Supply Chain"><h3>Supply Chain</h3></article>
-          <article class="card"><img src="images/New Energy.jpg" alt="New Energy"><h3>New Energy</h3></article>
-        </div>
-      </div>
+    <section id="about" class="container section">
+      <h2>About NEXORA</h2>
+      <p>
+        NEXORA connects exceptional leadership talent with world-class manufacturers across the U.S. and Europe.
+        We bridge industrial operations and strategic recruitment, aligning leadership vision with execution.
+      </p>
+      <p>
+        With a deep understanding of <strong>European and North American business cultures</strong>,
+        NEXORA helps global organizations navigate the subtle but critical differences in leadership expectations,
+        communication, and decision-making — one of the most important ingredients for sustainable success.
+      </p>
+      <p>
+        While rooted in <strong>manufacturing and industrial excellence</strong>, our boutique structure allows us to partner across
+        <strong>emerging technologies, new energy, and advanced materials</strong>,
+        wherever leadership and execution must align. We don’t just fill positions — we build
+        <strong>transatlantic leadership bridges that drive measurable results</strong>.
+      </p>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="container">
-        <div class="content">
-          <h2>About NEXORA</h2>
-          <p>
-            NEXORA connects exceptional leadership talent with world-class manufacturers across the U.S. and Europe.
-            We bridge industrial operations and strategic recruitment, aligning leadership vision with execution.
-          </p>
-          <p>
-            With a deep understanding of <strong>European and North American business cultures</strong>,
-            NEXORA helps global organizations navigate the subtle but critical differences in leadership expectations,
-            communication, and decision-making — one of the most important ingredients for sustainable success.
-          </p>
-          <p>
-            While rooted in <strong>manufacturing and industrial excellence</strong>, our boutique structure allows us to partner across
-            <strong>emerging technologies, new energy, and advanced materials</strong>,
-            wherever leadership and execution must align. We don’t just fill positions — we build
-            <strong>transatlantic leadership bridges that drive measurable results</strong>.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="container">
-        <div class="content">
-          <h2>Contact</h2>
-          <p>Email: <a href="mailto:sales@globalsparx.com">sales@globalsparx.com</a></p>
-        </div>
-      </div>
+    <section id="contact" class="container section">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:sales@globalsparx.com">sales@globalsparx.com</a></p>
     </section>
   </main>
 
