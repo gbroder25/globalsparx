@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NEXORA — Executive Search & Consulting for Manufacturing and Supply Chain Leaders</title>
-  <meta name="description" content="NEXORA is a boutique executive search and consulting firm specialized in manufacturing and supply chain leadership across automotive, industrial, petrochemical, plastics, packaging, new energy, aerospace & defense, medical device, and supply chain sectors." />
+  <meta name="description" content="NEXORA is a boutique executive search and consulting firm specialized in manufacturing and supply chain leadership across automotive, industrial, petrochemical, plastics processing, packaging, new energy, aerospace & defense, medical device, and supply chain sectors." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231a1f2e'/%3E%3Cpath d='M18 40l7-18 6 9 15-7-7 18-6-9z' fill='%23ffffff'/%3E%3C/svg%3E" />
   <style>
     :root{
@@ -14,7 +14,7 @@
     }
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-    .container{max-width:1100px;padding:24px;margin:0 auto}
+    .container{max-width:1200px;padding:24px;margin:0 auto}
 
     /* Header / Nav */
     header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(8px);background:rgba(15,18,32,.7);border-bottom:1px solid rgba(255,255,255,.06)}
@@ -28,6 +28,9 @@
     nav a{color:var(--accent);text-decoration:none;font-weight:500;font-size:18px;transition:color .25s}
     nav a:hover{color:var(--accent-2)}
 
+    /* Section anchor offset so header doesn't cover it */
+    section{scroll-margin-top:90px}
+
     /* Hero */
     .hero{padding:80px 0 40px;text-align:center}
     .headline{font-size:clamp(28px,5vw,56px);font-weight:800}
@@ -37,16 +40,53 @@
     .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0b0f1a}
     .btn-outline{border-color:rgba(255,255,255,.18);color:var(--text)}
 
-    /* Sections / Cards */
     .section{padding:46px 0}
-    .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));justify-items:center}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);text-align:center;transition:transform .3s}
-    .card:hover{transform:translateY(-6px)}
-    .card h2{margin-bottom:8px}
 
-    /* Industry tiles */
-    .tiles{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-    .tile{position:relative;border-radius:16px;overflow:hidden;background:var(--card);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.07);min-height:220px}
+    /* ===== Services (centered, equal height, larger look) ===== */
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:28px;
+      justify-items:center;
+    }
+    @media (max-width: 980px){
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width: 640px){
+      .services-grid{grid-template-columns:1fr}
+    }
+    .service-card{
+      width:100%;
+      max-width:520px;               /* keeps them big like your target */
+      background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:34px 32px;             /* generous padding like the “should be” */
+      text-align:center;
+      display:flex;                   /* equal height */
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      min-height:280px;
+      transition:transform .3s ease;
+    }
+    .service-card:hover{transform:translateY(-6px)}
+    .service-card h2{
+      font-size:clamp(22px,2.6vw,34px);
+      margin-bottom:16px;
+      line-height:1.25;
+    }
+    .service-card p{
+      max-width:46ch;
+      font-size:18px;
+      line-height:1.75;
+      color:var(--text);
+    }
+
+    /* ===== Industry tiles ===== */
+    .tiles{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .tile{position:relative;border-radius:16px;overflow:hidden;background:#0f1220;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.07);min-height:220px}
     .tile img{width:100%;height:160px;object-fit:cover;display:block;filter:saturate(1.05)}
     .tile .tile-body{padding:14px 16px}
     .tile h3{font-size:18px;margin:0 0 4px}
@@ -92,19 +132,19 @@
       </div>
     </section>
 
-    <!-- SERVICES -->
+    <!-- ===== SERVICES (centered, equal height) ===== -->
     <section id="services" class="section">
       <div class="container">
-        <div class="grid">
-          <article class="card">
+        <div class="services-grid">
+          <article class="service-card">
             <h2>Executive Search</h2>
             <p>Confidential searches for <strong>Plant Managers, Operations Directors, VPs of Sales, Supply Chain leaders, and General Managers</strong>. Retained with a clear SLA and 60-day guarantee.</p>
           </article>
-          <article class="card">
+          <article class="service-card">
             <h2>Consulting Services</h2>
             <p>Organizational design, performance optimization, and leadership alignment programs tailored to industrial and manufacturing environments.</p>
           </article>
-          <article class="card">
+          <article class="service-card">
             <h2>Talent Advisory</h2>
             <p>Market mapping, compensation benchmarking, and hiring process design to reduce time-to-fill and increase quality-of-hire across industrial footprints.</p>
           </article>
@@ -112,7 +152,7 @@
       </div>
     </section>
 
-    <!-- INDUSTRIES with IMAGES -->
+    <!-- ===== INDUSTRIES (with images) ===== -->
     <section id="industries" class="section">
       <div class="container">
         <h2 style="margin-bottom:14px">Industries We Serve</h2>
@@ -121,85 +161,49 @@
         </p>
 
         <div class="tiles">
-          <!-- Automotive -->
           <article class="tile">
             <img loading="lazy" src="images/Automotive.webp" alt="Automotive industry" />
-            <div class="tile-body">
-              <h3>Automotive</h3>
-              <p>OEM, Tier-1/2, electrification, final assembly, and advanced manufacturing.</p>
-            </div>
+            <div class="tile-body"><h3>Automotive</h3><p>OEM, Tier-1/2, electrification, final assembly, and advanced manufacturing.</p></div>
           </article>
 
-          <!-- Petrochemical -->
           <article class="tile">
             <img loading="lazy" src="images/Petrochemical.jpg" alt="Petrochemical plant at dusk" />
-            <div class="tile-body">
-              <h3>Petrochemical</h3>
-              <p>Process industries, reliability, EHS leadership, turnarounds, and asset care.</p>
-            </div>
+            <div class="tile-body"><h3>Petrochemical</h3><p>Process industries, reliability, EHS leadership, turnarounds, and asset care.</p></div>
           </article>
 
-          <!-- Industrial -->
           <article class="tile">
             <img loading="lazy" src="images/Industrial.jpg" alt="Industrial facility pumps and piping" />
-            <div class="tile-body">
-              <h3>Industrial</h3>
-              <p>Capital equipment, rotating machinery, automation, motion, and filtration.</p>
-            </div>
+            <div class="tile-body"><h3>Industrial</h3><p>Capital equipment, rotating machinery, automation, motion, and filtration.</p></div>
           </article>
 
-          <!-- Plastic Processing -->
           <article class="tile">
             <img loading="lazy" src="images/Plastic%20Processing.jpg" alt="Colored plastic pellets" />
-            <div class="tile-body">
-              <h3>Plastic Processing</h3>
-              <p>Injection molding, extrusion, compounding, tool transfer, and PPAP.</p>
-            </div>
+            <div class="tile-body"><h3>Plastic Processing</h3><p>Injection molding, extrusion, compounding, tool transfer, and PPAP.</p></div>
           </article>
 
-          <!-- Packaging -->
           <article class="tile">
-            <img loading="lazy" src="images/Packaging.jpg" alt="Packaging recycling bins and materials" />
-            <div class="tile-body">
-              <h3>Packaging</h3>
-              <p>Rigid/flexible, automation lines, sustainability, and quality systems.</p>
-            </div>
+            <img loading="lazy" src="images/Packaging.jpg" alt="Packaging bins and materials" />
+            <div class="tile-body"><h3>Packaging</h3><p>Rigid/flexible, automation lines, sustainability, and quality systems.</p></div>
           </article>
 
-          <!-- New Energy -->
           <article class="tile">
             <img loading="lazy" src="images/New%20Energy.jpg" alt="New energy sector image" />
-            <div class="tile-body">
-              <h3>New Energy</h3>
-              <p>Battery, fuel cell, grid storage, and component supply chains.</p>
-            </div>
+            <div class="tile-body"><h3>New Energy</h3><p>Battery, fuel cell, grid storage, and component supply chains.</p></div>
           </article>
 
-          <!-- Aerospace & Defense -->
           <article class="tile">
             <img loading="lazy" src="images/Aerospace%20and%20Defense.jpg" alt="Aircraft cockpit and avionics" />
-            <div class="tile-body">
-              <h3>Aerospace &amp; Defense</h3>
-              <p>Precision, certification, secure supply, and mission-critical programs.</p>
-            </div>
+            <div class="tile-body"><h3>Aerospace &amp; Defense</h3><p>Precision, certification, secure supply, and mission-critical programs.</p></div>
           </article>
 
-          <!-- Medical Device -->
           <article class="tile">
             <img loading="lazy" src="images/Medical%20Device.jpg" alt="Medical device sector" />
-            <div class="tile-body">
-              <h3>Medical Device</h3>
-              <p>Regulated environments, clean room ops, CAPA, and validation leadership.</p>
-            </div>
+            <div class="tile-body"><h3>Medical Device</h3><p>Regulated environments, clean room ops, CAPA, and validation leadership.</p></div>
           </article>
 
-          <!-- Supply Chain -->
           <article class="tile">
             <img loading="lazy" src="images/Supply%20Chain.jpg" alt="Supply chain and logistics" />
-            <div class="tile-body">
-              <h3>Supply Chain</h3>
-              <p>S&amp;OP, procurement, logistics, inventory optimization, and network design.</p>
-            </div>
+            <div class="tile-body"><h3>Supply Chain</h3><p>S&amp;OP, procurement, logistics, inventory optimization, and network design.</p></div>
           </article>
         </div>
       </div>
