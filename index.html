@@ -18,6 +18,7 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-padding-top: 100px; scroll-behavior: smooth; }
 
     body {
       font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
@@ -26,199 +27,94 @@
       line-height: 1.6;
     }
 
-    .container {
-      max-width: 1100px;
-      padding: 24px;
-      margin: 0 auto;
-    }
+    .container { max-width: 1100px; padding: 24px; margin: 0 auto; }
 
+    /* Header / Nav */
     header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
+      position: sticky; top: 0; z-index: 50;
       backdrop-filter: saturate(180%) blur(8px);
       background: rgba(15,18,32,.7);
       border-bottom: 1px solid rgba(255,255,255,.06);
     }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
+    .nav { display: flex; align-items: center; justify-content: space-between; }
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      color: var(--accent);
+      display: flex; align-items: center; gap: 12px;
+      font-weight: 700; color: var(--accent); letter-spacing: .3px;
       text-decoration: none;
-      letter-spacing: .3px;
     }
     .brand:hover { color: var(--accent-2); }
-
     .logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
+      width: 36px; height: 36px; border-radius: 50%;
       background: radial-gradient(120px 80px at 70% 30%, var(--accent), transparent 60%),
                   radial-gradient(120px 80px at 30% 70%, var(--accent-2), transparent 60%), #1a1f2e;
       box-shadow: var(--shadow);
     }
-
-    nav {
-      display: flex;
-      gap: 60px;
-      align-items: center;
-    }
-
+    nav { display: flex; gap: 60px; align-items: center; }
     nav a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 18px;
-      transition: color .25s ease;
+      color: var(--accent); text-decoration: none;
+      font-weight: 500; font-size: 18px; transition: color .25s ease;
     }
-
     nav a:hover { color: var(--accent-2); }
-
-    .nav .btn-header {
-      margin-left: 30px;
-      padding: 10px 18px;
+    .btn-header {
+      padding: 10px 18px; margin-left: 12px;
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      border-radius: 999px;
-      color: #0b0f1a;
-      font-weight: 600;
-      text-decoration: none;
-      transition: opacity .25s;
+      border-radius: 999px; color: #0b0f1a; font-weight: 600; text-decoration: none;
     }
 
-    .nav .btn-header:hover { opacity: 0.9; }
-
-    /* Hero Section */
-    .hero {
-      padding: 80px 0 40px;
-      text-align: left;
-    }
-
-    .headline {
-      font-size: clamp(28px, 5vw, 56px);
-      font-weight: 800;
-      line-height: 1.2;
-      text-align: left;
-      margin-bottom: 20px;
-    }
-
-    .subhead {
-      font-size: 18px;
-      color: var(--muted);
-      text-align: justify;
-      margin: 0 auto 30px;
-      max-width: 1000px;
-      line-height: 1.7;
-    }
-
-    /* Section General */
-    .section {
-      padding: 60px 0;
-    }
-
+    /* Sections & typography */
+    .section { padding: 60px 0; }
     .section h2 {
       font-size: clamp(24px, 3.2vw, 34px);
-      font-weight: 700;
-      margin-bottom: 30px;
-      color: var(--accent);
-      text-align: left;
+      font-weight: 700; margin-bottom: 24px;
+      color: var(--accent); text-align: left;
+    }
+    .lead { font-size: clamp(28px, 4.5vw, 48px); font-weight: 800; line-height: 1.2; margin-bottom: 18px; text-align: left; }
+    .para {
+      font-size: 18px; color: var(--muted);
+      text-align: justify; text-justify: inter-word;
+      max-width: 1000px;
+      line-height: 1.7; margin-bottom: 20px;
     }
 
-    /* Services Grid */
+    /* Grids & Cards */
     .grid {
-      display: grid;
-      gap: 24px;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      justify-items: start;
+      display: grid; gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      align-items: stretch; /* equal heights across rows */
+      justify-items: stretch;
     }
-
     .card {
       background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
       border: 1px solid rgba(255,255,255,.08);
       border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
+      padding: 24px; box-shadow: var(--shadow);
+      display: flex; flex-direction: column; /* equalize heights with stretch */
       text-align: left;
       transition: transform .3s ease;
-      width: 100%;
     }
-
     .card:hover { transform: translateY(-6px); }
-
     .card h3 {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: var(--accent);
-      text-align: left;
+      font-size: 22px; font-weight: 700; color: var(--accent);
+      margin-bottom: 10px; text-align: left;
     }
+    .card p { text-align: justify; text-justify: inter-word; }
 
-    .card p {
-      text-align: justify;
+    /* Industry image cards */
+    .card img {
+      width: 100%; height: 190px; object-fit: cover;
+      border-radius: 12px; margin-bottom: 12px;
     }
-
-    /* About Section */
-    #about {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    #about h2 {
-      color: var(--accent);
-      text-align: left;
-      margin-bottom: 16px;
-    }
-
-    #about p {
-      text-align: justify;
-      margin-bottom: 16px;
-    }
-
-    /* Contact Section */
-    #contact {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    #contact h2 {
-      color: var(--accent);
-      text-align: left;
-      margin-bottom: 12px;
-    }
-
-    #contact p {
-      text-align: left;
-      margin-bottom: 8px;
-    }
-
-    #contact a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    #contact a:hover { color: var(--accent-2); }
 
     /* Footer */
     .footer {
-      padding: 28px 0 60px;
-      color: var(--muted);
-      font-size: 14px;
-      border-top: 1px solid rgba(255,255,255,.08);
-      text-align: center;
+      padding: 28px 0 60px; color: var(--muted); font-size: 14px;
+      border-top: 1px solid rgba(255,255,255,.08); text-align: center;
     }
-
   </style>
 </head>
 
 <body>
+  <!-- HEADER -->
   <header>
     <div class="container nav">
       <a href="#about" class="brand" aria-label="Go to About">
@@ -236,19 +132,21 @@
   </header>
 
   <main>
-    <section class="container hero">
-      <h1 class="headline">Bridging European Precision<br>with American Performance.</h1>
-      <p class="subhead">
+    <!-- HERO -->
+    <section class="section container" id="home">
+      <h1 class="lead">Bridging European Precision<br>with American Performance.</h1>
+      <p class="para">
         NEXORA is a boutique executive search and consulting firm specialized in <strong>manufacturing and supply chain</strong>
         leadership across the <strong>automotive, industrial, and capital equipment sectors</strong>.
-        We combine hands-on <strong>multi-plant P&L experience</strong> with a deep understanding of
+        We combine hands-on <strong>multi-plant P&amp;L experience</strong> with a deep understanding of
         <strong>European and North American business cultures</strong>—bridging operational excellence with leadership alignment.
         Our dual expertise in <strong>executive search</strong> and <strong>consulting services</strong> enables us to help clients
         identify, assess, and develop leadership teams that drive performance, efficiency, and cross-continental collaboration.
       </p>
     </section>
 
-    <section id="services" class="section container">
+    <!-- SERVICES -->
+    <section class="section container" id="services">
       <h2>Services We Offer</h2>
       <div class="grid">
         <article class="card">
@@ -267,29 +165,92 @@
       </div>
     </section>
 
-    <section id="about" class="section container">
+    <!-- INDUSTRIES -->
+    <section class="section container" id="industries">
+      <h2>Industries We Serve</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="images/Automotive.webp" alt="Automotive" />
+          <h3>Automotive</h3>
+          <p>OEMs and Tier 1–2 suppliers across powertrain, interiors, exteriors, tooling, and automation.</p>
+        </article>
+
+        <article class="card">
+          <img src="images/Petrochemical.jpg" alt="Petrochemical" />
+          <h3>Petrochemical</h3>
+          <p>Materials, resins, specialty chemicals and downstream processing, EH&amp;S focused operations.</p>
+        </article>
+
+        <article class="card">
+          <img src="images/Industrial.jpg" alt="Industrial" />
+          <h3>Industrial</h3>
+          <p>Capital equipment, motion, filtration, pumps, and engineered components for diversified industry.</p>
+        </article>
+
+        <article class="card">
+          <img src="images/Plastic%20Processing.jpg" alt="Plastic Processing" />
+          <h3>Plastic Processing</h3>
+          <p>Injection molding, extrusion, thermoforming—operations leadership, quality, and commercial roles.</p>
+        </article>
+
+        <article class="card">
+          <img src="images/Packaging.jpg" alt="Packaging" />
+          <h3>Packaging</h3>
+          <p>Rigid/flexible packaging, machinery, and materials for food, medical, and industrial applications.</p>
+        </article>
+
+        <article class="card">
+          <img src="images/Aerospace%20and%20Defense.jpg" alt="Aerospace and Defense" />
+          <h3>Aerospace &amp; Defense</h3>
+          <p>Precision manufacturing, certification-driven environments, and program leadership.</p>
+        </article>
+
+        <article class="card">
+          <img src="images/Medical%20Device.jpg" alt="Medical Device" />
+          <h3>Medical Device</h3>
+          <p>Regulated manufacturing, cleanroom operations, and quality systems in MedTech and diagnostics.</p>
+        </article>
+
+        <article class="card">
+          <img src="images/Supply%20Chain.jpg" alt="Supply Chain" />
+          <h3>Supply Chain</h3>
+          <p>Planning, procurement, logistics, and S&amp;OP leaders driving resilience and cost efficiency.</p>
+        </article>
+
+        <article class="card">
+          <img src="images/New%20Energy.jpg" alt="New Energy" />
+          <h3>New Energy</h3>
+          <p>Batteries, storage, e-mobility, and advanced materials—scaling next-gen industrial footprints.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section container" id="about">
       <h2>About NEXORA</h2>
-      <p>
+      <p class="para">
         NEXORA connects exceptional leadership talent with world-class manufacturers across the U.S. and Europe.
         We bridge industrial operations and strategic recruitment, aligning leadership vision with execution.
       </p>
-      <p>
-        With a deep understanding of <strong>European and North American business cultures</strong>,
-        NEXORA helps global organizations navigate the subtle but critical differences in leadership expectations,
-        communication, and decision-making — one of the most important ingredients for sustainable success.
+      <p class="para">
+        With a deep understanding of <strong>European and North American business cultures</strong>, we help global organizations
+        navigate the subtle but critical differences in leadership expectations, communication, and decision-making—
+        one of the most important ingredients for sustainable success.
       </p>
-      <p>
+      <p class="para">
         While rooted in <strong>manufacturing and industrial excellence</strong>, our boutique structure allows us to partner across
-        <strong>emerging technologies, new energy, and advanced materials</strong>,
-        wherever leadership and execution must align. We don’t just fill positions — we build
+        <strong>emerging technologies, new energy, and advanced materials</strong>. We don’t just fill positions—we build
         <strong>transatlantic leadership bridges that drive measurable results</strong>.
       </p>
     </section>
 
-    <section id="contact" class="section container">
+    <!-- CONTACT -->
+    <section class="section container" id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:sales@globalsparx.com">sales@globalsparx.com</a></p>
-      <p>Location: United States • Europe</p>
+      <p class="para" style="text-align:left;">
+        Email: <a href="mailto:sales@globalsparx.com" style="color:var(--accent); text-decoration:none;">sales@globalsparx.com</a><br />
+        Locations: United States • Europe
+      </p>
     </section>
   </main>
 
