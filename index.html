@@ -95,15 +95,32 @@
       align-items: stretch; /* equal heights across rows */
       justify-items: stretch;
     }
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: var(--radius);
-      padding: 24px; box-shadow: var(--shadow);
-      display: flex; flex-direction: column; /* equalize heights with stretch */
-      text-align: left;
-      transition: transform .3s ease;
-    }
+  .card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  padding: 24px 24px 24px 30px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  transition: transform .3s ease;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  border-radius: 6px 0 0 6px;
+  opacity: 0.9;
+}
+
     .card:hover { transform: translateY(-6px); }
     .card h3 {
       font-size: 22px; font-weight: 700; color: var(--accent);
