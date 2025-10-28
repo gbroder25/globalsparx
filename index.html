@@ -24,25 +24,38 @@
     .logo{width:36px;height:36px;border-radius:50%;background:
       radial-gradient(120px 80px at 70% 30%, var(--accent), transparent 60%),
       radial-gradient(120px 80px at 30% 70%, var(--accent-2), transparent 60%), #1a1f2e;box-shadow:var(--shadow)}
-    nav{display:flex;gap:60px}
+
+    nav{display:flex;align-items:center;gap:36px}
     nav a{color:var(--accent);text-decoration:none;font-weight:500;font-size:18px;transition:color .25s}
     nav a:hover{color:var(--accent-2)}
+    .nav-cta{
+      margin-left:8px;
+      padding:10px 16px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:#0b0f1a !important;
+      font-weight:700;
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .nav-cta:hover{filter:saturate(1.05)}
 
     /* Section anchor offset so header doesn't cover it */
     section{scroll-margin-top:90px}
 
     /* Hero */
-    .hero{padding:80px 0 40px;text-align:center}
+    .hero{padding:64px 0 8px;text-align:center}
     .headline{font-size:clamp(28px,5vw,56px);font-weight:800}
-    .subhead{font-size:18px;color:var(--muted);text-align:justify;margin:0 auto;max-width:1000px;line-height:1.7}
-    .cta-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:12px}
-    .btn{display:inline-block;padding:14px 18px;border-radius:999px;font-weight:600;border:1px solid transparent}
-    .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0b0f1a}
-    .btn-outline{border-color:rgba(255,255,255,.18);color:var(--text)}
+    .subhead{font-size:18px;color:var(--muted);text-align:justify;margin:12px auto 0;max-width:1000px;line-height:1.7}
 
     .section{padding:46px 0}
 
-    /* ===== Services (centered, equal height, larger look) ===== */
+    /* ===== Services (centered, equal height) ===== */
+    .services-title{
+      text-align:center;
+      font-size:clamp(22px,3vw,32px);
+      font-weight:800;
+      margin-bottom:18px;
+    }
     .services-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -57,14 +70,14 @@
     }
     .service-card{
       width:100%;
-      max-width:520px;               /* keeps them big like your target */
+      max-width:520px;
       background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));
       border:1px solid rgba(255,255,255,.08);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:34px 32px;             /* generous padding like the “should be” */
+      padding:34px 32px;
       text-align:center;
-      display:flex;                   /* equal height */
+      display:flex;
       flex-direction:column;
       align-items:center;
       justify-content:flex-start;
@@ -107,6 +120,8 @@
       </a>
       <nav aria-label="Primary">
         <a href="#services">Services</a>
+        <!-- Moved CTA into the top navigation, right after Services -->
+        <a class="nav-cta" href="mailto:sales@globalsparx.com?subject=NEXORA%20Intro%20Call">Book an Intro Call</a>
         <a href="#industries">Industries</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
@@ -126,15 +141,13 @@
         <strong>European and North American business cultures</strong>—bridging operational excellence with leadership alignment.
         Our dual expertise in <strong>executive search</strong> and <strong>consulting services</strong> helps clients identify, assess, and develop leadership teams that drive performance, efficiency, and cross-continental collaboration.
       </p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="mailto:sales@globalsparx.com?subject=NEXORA%20Inquiry">Book an Intro Call</a>
-        <a class="btn btn-outline" href="#services">See our services</a>
-      </div>
+      <!-- Hero CTA row removed per request -->
     </section>
 
     <!-- ===== SERVICES (centered, equal height) ===== -->
     <section id="services" class="section">
       <div class="container">
+        <h2 class="services-title">Services We Offer</h2>
         <div class="services-grid">
           <article class="service-card">
             <h2>Executive Search</h2>
