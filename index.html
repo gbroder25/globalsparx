@@ -24,6 +24,11 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    html {
+      scroll-padding-top: 100px; /* Ensures anchors like #about aren't hidden behind header */
     }
 
     .container { max-width: 1100px; padding: 24px; margin: 0 auto; }
@@ -63,7 +68,6 @@
       box-shadow: var(--shadow);
     }
 
-    /* Navigation */
     nav {
       display: flex;
       gap: 60px;
@@ -90,7 +94,6 @@
     }
     .nav .btn-header:hover { opacity: 0.9; }
 
-    /* Hero */
     .hero { padding: 80px 0 40px; text-align: center; }
     .headline { font-size: clamp(28px, 5vw, 56px); font-weight: 800; line-height: 1.2; }
     .subhead {
@@ -102,7 +105,6 @@
       line-height: 1.7;
     }
 
-    /* Sections */
     .section { padding: 60px 0; }
     .section h2 {
       font-size: clamp(24px, 3.2vw, 34px);
@@ -112,7 +114,6 @@
       color: var(--accent);
     }
 
-    /* Cards */
     .grid {
       display: grid;
       gap: 24px;
@@ -141,7 +142,12 @@
       margin-bottom: 15px;
     }
 
-    /* Footer */
+    #about p {
+      text-align: justify;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
     .footer {
       padding: 28px 0 60px;
       color: var(--muted);
@@ -203,42 +209,15 @@
       <div class="container">
         <h2>Industries We Serve</h2>
         <div class="grid">
-          <article class="card">
-            <img src="images/Automotive.webp" alt="Automotive Industry">
-            <h3>Automotive</h3>
-          </article>
-          <article class="card">
-            <img src="images/Petrochemical.jpg" alt="Petrochemical Industry">
-            <h3>Petrochemical</h3>
-          </article>
-          <article class="card">
-            <img src="images/Industrial.jpg" alt="Industrial Sector">
-            <h3>Industrial</h3>
-          </article>
-          <article class="card">
-            <img src="images/Plastic Processing.jpg" alt="Plastic Processing Industry">
-            <h3>Plastic Processing</h3>
-          </article>
-          <article class="card">
-            <img src="images/Packaging.jpg" alt="Packaging Industry">
-            <h3>Packaging</h3>
-          </article>
-          <article class="card">
-            <img src="images/Aerospace and Defense.jpg" alt="Aerospace and Defense">
-            <h3>Aerospace & Defense</h3>
-          </article>
-          <article class="card">
-            <img src="images/Medical Device.jpg" alt="Medical Device">
-            <h3>Medical Device</h3>
-          </article>
-          <article class="card">
-            <img src="images/Supply Chain.jpg" alt="Supply Chain">
-            <h3>Supply Chain</h3>
-          </article>
-          <article class="card">
-            <img src="images/New Energy.jpg" alt="New Energy Sector">
-            <h3>New Energy</h3>
-          </article>
+          <article class="card"><img src="images/Automotive.webp" alt="Automotive Industry"><h3>Automotive</h3></article>
+          <article class="card"><img src="images/Petrochemical.jpg" alt="Petrochemical"><h3>Petrochemical</h3></article>
+          <article class="card"><img src="images/Industrial.jpg" alt="Industrial"><h3>Industrial</h3></article>
+          <article class="card"><img src="images/Plastic Processing.jpg" alt="Plastic Processing"><h3>Plastic Processing</h3></article>
+          <article class="card"><img src="images/Packaging.jpg" alt="Packaging"><h3>Packaging</h3></article>
+          <article class="card"><img src="images/Aerospace and Defense.jpg" alt="Aerospace & Defense"><h3>Aerospace & Defense</h3></article>
+          <article class="card"><img src="images/Medical Device.jpg" alt="Medical Device"><h3>Medical Device</h3></article>
+          <article class="card"><img src="images/Supply Chain.jpg" alt="Supply Chain"><h3>Supply Chain</h3></article>
+          <article class="card"><img src="images/New Energy.jpg" alt="New Energy"><h3>New Energy</h3></article>
         </div>
       </div>
     </section>
