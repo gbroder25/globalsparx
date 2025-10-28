@@ -26,7 +26,11 @@
       line-height: 1.6;
     }
 
-    .container { max-width: 1100px; padding: 24px; margin: 0 auto; }
+    .container {
+      max-width: 1100px;
+      padding: 24px;
+      margin: 0 auto;
+    }
 
     header {
       position: sticky;
@@ -63,12 +67,12 @@
       box-shadow: var(--shadow);
     }
 
-    /* Navigation Links */
     nav {
       display: flex;
       gap: 60px;
       align-items: center;
     }
+
     nav a {
       color: var(--accent);
       text-decoration: none;
@@ -76,9 +80,9 @@
       font-size: 18px;
       transition: color .25s ease;
     }
+
     nav a:hover { color: var(--accent-2); }
 
-    /* CTA Button in Header */
     .nav .btn-header {
       margin-left: 30px;
       padding: 10px 18px;
@@ -89,35 +93,51 @@
       text-decoration: none;
       transition: opacity .25s;
     }
+
     .nav .btn-header:hover { opacity: 0.9; }
 
     /* Hero Section */
-    .hero { padding: 80px 0 40px; text-align: center; }
-    .headline { font-size: clamp(28px, 5vw, 56px); font-weight: 800; line-height: 1.2; }
+    .hero {
+      padding: 80px 0 40px;
+      text-align: left;
+    }
+
+    .headline {
+      font-size: clamp(28px, 5vw, 56px);
+      font-weight: 800;
+      line-height: 1.2;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
     .subhead {
       font-size: 18px;
       color: var(--muted);
       text-align: justify;
-      margin: 20px auto;
+      margin: 0 auto 30px;
       max-width: 1000px;
       line-height: 1.7;
     }
 
-    /* Services Section */
-    .section { padding: 60px 0; }
+    /* Section General */
+    .section {
+      padding: 60px 0;
+    }
+
     .section h2 {
       font-size: clamp(24px, 3.2vw, 34px);
       font-weight: 700;
       margin-bottom: 30px;
-      text-align: left;
       color: var(--accent);
+      text-align: left;
     }
 
+    /* Services Grid */
     .grid {
       display: grid;
-      gap: 18px;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      justify-items: center;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      justify-items: start;
     }
 
     .card {
@@ -129,44 +149,62 @@
       text-align: left;
       transition: transform .3s ease;
       width: 100%;
-      max-width: 330px;
     }
+
     .card:hover { transform: translateY(-6px); }
 
-    .card h3, .card p {
-      text-align: left;
-    }
-
-    /* Updated Title Size for Cards */
     .card h3 {
-      font-size: 22px;        /* larger titles */
+      font-size: 22px;
       font-weight: 700;
       margin-bottom: 12px;
       color: var(--accent);
+      text-align: left;
+    }
+
+    .card p {
+      text-align: justify;
     }
 
     /* About Section */
+    #about {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
     #about h2 {
       color: var(--accent);
       text-align: left;
       margin-bottom: 16px;
     }
+
     #about p {
       text-align: justify;
       margin-bottom: 16px;
-      max-width: 1000px;
     }
 
     /* Contact Section */
+    #contact {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
     #contact h2 {
       color: var(--accent);
       text-align: left;
       margin-bottom: 12px;
     }
+
     #contact p {
       text-align: left;
-      margin-left: 0;
+      margin-bottom: 8px;
     }
+
+    #contact a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    #contact a:hover { color: var(--accent-2); }
 
     /* Footer */
     .footer {
@@ -176,6 +214,7 @@
       border-top: 1px solid rgba(255,255,255,.08);
       text-align: center;
     }
+
   </style>
 </head>
 
@@ -198,35 +237,37 @@
 
   <main>
     <section class="container hero">
-      <h1 class="headline">Bridging European Precision with<br>American Performance.</h1>
+      <h1 class="headline">Bridging European Precision<br>with American Performance.</h1>
       <p class="subhead">
-        NEXORA is a boutique executive search and consulting firm specialized in <strong>manufacturing and supply chain</strong> leadership across the <strong>automotive, industrial, and capital equipment sectors</strong>.
-        We combine hands-on <strong>multi-plant P&L experience</strong> with a deep understanding of <strong>European and North American business cultures</strong>—bridging operational excellence with leadership alignment.
-        Our dual expertise in <strong>executive search</strong> and <strong>consulting services</strong> enables us to help clients identify, assess, and develop leadership teams that drive performance, efficiency, and cross-continental collaboration.
+        NEXORA is a boutique executive search and consulting firm specialized in <strong>manufacturing and supply chain</strong>
+        leadership across the <strong>automotive, industrial, and capital equipment sectors</strong>.
+        We combine hands-on <strong>multi-plant P&L experience</strong> with a deep understanding of
+        <strong>European and North American business cultures</strong>—bridging operational excellence with leadership alignment.
+        Our dual expertise in <strong>executive search</strong> and <strong>consulting services</strong> enables us to help clients
+        identify, assess, and develop leadership teams that drive performance, efficiency, and cross-continental collaboration.
       </p>
     </section>
 
-    <section id="services" class="section">
-      <div class="container">
-        <h2>Services We Offer</h2>
-        <div class="grid">
-          <article class="card">
-            <h3>Executive Search</h3>
-            <p>Confidential searches for <strong>Plant Managers, Operations Directors, VPs of Sales, Supply Chain leaders, and General Managers</strong>. Retained with a clear SLA and 60-day guarantee.</p>
-          </article>
-          <article class="card">
-            <h3>Consulting Services</h3>
-            <p>Organizational design, performance optimization, and leadership alignment programs tailored to industrial and manufacturing environments.</p>
-          </article>
-          <article class="card">
-            <h3>Talent Advisory</h3>
-            <p>Market mapping, compensation benchmarking, and hiring process design to reduce time-to-fill and increase quality-of-hire across industrial footprints.</p>
-          </article>
-        </div>
+    <section id="services" class="section container">
+      <h2>Services We Offer</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Executive Search</h3>
+          <p>Confidential searches for <strong>Plant Managers, Operations Directors, VPs of Sales, Supply Chain leaders, and General Managers</strong>.
+             Retained with a clear SLA and 60-day guarantee.</p>
+        </article>
+        <article class="card">
+          <h3>Consulting Services</h3>
+          <p>Organizational design, performance optimization, and leadership alignment programs tailored to industrial and manufacturing environments.</p>
+        </article>
+        <article class="card">
+          <h3>Talent Advisory</h3>
+          <p>Market mapping, compensation benchmarking, and hiring process design to reduce time-to-fill and increase quality-of-hire across industrial footprints.</p>
+        </article>
       </div>
     </section>
 
-    <section id="about" class="container section">
+    <section id="about" class="section container">
       <h2>About NEXORA</h2>
       <p>
         NEXORA connects exceptional leadership talent with world-class manufacturers across the U.S. and Europe.
@@ -245,9 +286,10 @@
       </p>
     </section>
 
-    <section id="contact" class="container section">
+    <section id="contact" class="section container">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:sales@globalsparx.com">sales@globalsparx.com</a></p>
+      <p>Location: United States • Europe</p>
     </section>
   </main>
 
